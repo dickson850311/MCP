@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "intesim": {
+      "command": "D:\\INTESIM8.0\\Python38\\python.exe",
+      "args": [
+        "C:\\path\\to\\intesim-mcp\\server\\mcp_server.py"
+      ],
+      "env": {
+        "INTESIM_BRIDGE_HOST": "127.0.0.1",
+        "INTESIM_BRIDGE_PORT": "5099"
+      }
+    }
+  }
+}
