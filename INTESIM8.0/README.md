@@ -49,7 +49,8 @@ intesim-mcp/
 ├── launch/
 │   ├── start_intesim_with_bridge.bat  # 带桥启动 INTESIM
 │   ├── mcp_server.bat                 # 启动 MCP server
-│   └── mcp_config_example.json       # MCP 客户端配置片段
+│   ├── mcp_config_example.json       # 通用 MCP 客户端配置片段
+│   └── codex_config_example.toml     # Codex (config.toml) 配置片段
 └── tests/
     ├── fake_bridge.py        # 测试用假桥
     └── test_protocol.py      # 帧协议 + MCP 握手端到端自测
@@ -98,6 +99,19 @@ launch\start_intesim_with_bridge.bat
 ```
 
 > 路径含中文/空格时保持 JSON 转义；`args[0]` 指向 `mcp_server.py` 的绝对路径。
+
+**接入 Codex（CLI / 桌面端）**：把 `launch/codex_config_example.toml` 中的两段追加到 `~/.codex/config.toml`，将 `args[0]` 改成本机 `mcp_server.py` 绝对路径后重启 Codex：
+
+```toml
+[mcp_servers.intesim]
+command = 'D:\INTESIM8.0\Python38\python.exe'
+args = ['C:\path\to\intesim-mcp\server\mcp_server.py']
+
+[mcp_servers.intesim.env]
+PYTHONIOENCODING = "utf-8"
+INTESIM_BRIDGE_HOST = "127.0.0.1"
+INTESIM_BRIDGE_PORT = "5099"
+```
 
 ### 4.3 验证连通
 
