@@ -1,0 +1,68 @@
+{
+  "source_docx": "D:/report/QR-V23_report.docx",
+  "output_docx": "D:/report/QR-V23_report_nativePost.docx",
+  "backup_docx": "D:/report/work/SOURCE_DOCX.docx",
+  "fallback_suffix": "_nativePost",
+  "images": [
+    {
+      "file": "D:/work/native_post/native_thermal_cold.png",
+      "width_cm": 15.6
+    },
+    {
+      "file": "D:/work/native_post/native_thermal_hot.png",
+      "width_cm": 15.6
+    },
+    {
+      "file": "D:/work/native_post/native_struct_cold_UZ.png",
+      "width_cm": 15.6
+    },
+    {
+      "file": "D:/work/native_post/native_struct_cold_US.png",
+      "width_cm": 15.6
+    },
+    {
+      "file": "D:/work/native_post/native_struct_hot_UZ.png",
+      "width_cm": 15.6
+    },
+    {
+      "file": "D:/work/native_post/native_struct_hot_US.png",
+      "width_cm": 15.6
+    }
+  ],
+  "paragraph_replacements": [
+    {
+      "find": "以下云图为 INTESIM 结果文件的节点场",
+      "text": "以下六张云图均由 INTESIM Post 后处理窗口从本次求解的 .res.inp 结果文件直接导出（Post.savePicture），保留原生模型轮廓、原生色标、原生视角与左上角模型/步号/时间标注，未使用 Python 重绘或截图拼接。温度图取外表面节点温度，结构图取整体节点位移；图内色标单位分别为 ℃ 与 m，正文与表格统一换算为 mm。"
+    },
+    {
+      "find": "图 1",
+      "text": "图 1  冷段 1800 s 外表面温度云图（INTESIM Post 原生，色标 −40.00～20.00 ℃）"
+    },
+    {
+      "find": "图 2",
+      "text": "图 2  热段 1800 s 外表面温度云图（INTESIM Post 原生，色标 20.00～85.00 ℃）"
+    },
+    {
+      "find": "图 3",
+      "text": "图 3  冷段 UZ 位移云图（INTESIM Post 原生，图内色标 m；对应 −0.0096～+0.0208 mm）"
+    },
+    {
+      "find": "图 4",
+      "text": "图 4  冷段 |U| 位移云图（INTESIM Post 原生，图内色标 m；最大 0.774 mm）"
+    },
+    {
+      "find": "图 5",
+      "text": "图 5  热段 UZ 位移云图（INTESIM Post 原生，图内色标 m；对应 −0.0225～+0.0104 mm）"
+    },
+    {
+      "find": "图 6",
+      "text": "图 6  热段 |U| 位移云图（INTESIM Post 原生，图内色标 m；最大 0.839 mm）"
+    }
+  ],
+  "table_cell_replacements": [
+    {
+      "old": "本次实算节点场投影",
+      "new": "INTESIM Post 原生后处理云图"
+    }
+  ]
+}
