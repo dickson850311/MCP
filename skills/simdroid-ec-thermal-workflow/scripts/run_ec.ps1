@@ -1,22 +1,49 @@
 param(
-    [Parameter(Mandatory=$true)][string]$Script,
-    [ValidateSet("auto", "ec", "system")][string]$Python = "auto",
-    [Parameter(ValueFromRemainingArguments=$true)][string[]]$Args
+    [Parameter(Mandatory = $true)]
+    [string]$Script,
+    [string]$Root = "D:\Simdroid Electronic Cooling V2026.7.3",
+    [ValidateSet("auto", "ec", "system")]
+    [string]$Python = "auto"
 )
-$root = $env:EC_INSTALL_ROOT
-if (-not $root) { $root = "D:\Simdroid Electronic Cooling V2026.7.3" }
 
-# 09/10/11 only need pymupdf/python-docx and do not import IBE.
+$ErrorActionPreference = "Stop"
+$scriptPath = (Resolve-Path $Script).Path
+$scriptName = Split-Path $scriptPath -Leaf
+$scriptDir = Split-Path $scriptPath -Parent
+
+# 09/10/11 只做绘图/Word，不 import IBE，用系统 Python（需 pymupdf、python-docx）
 if ($Python -eq "auto") {
-    $leaf = [System.IO.Path]::GetFileName($Script)
-    if ($leaf -match '^(09|10|11)_') { $Python = "system" } else { $Python = "ec" }
+    if ($scriptName -match '^(09|10|11)_') {
+        $Python = "system"
+    } else {
+        $Python = "ec"
+    }
 }
-if ($Python -eq "system") {
-    $exe = (Get-Command python.exe -ErrorAction SilentlyContinue).Source
-    if (-not $exe) { throw "system python.exe not found; install Python with pymupdf and python-docx" }
+
+if ($Python -eq "ec") {
+    $py = Join-Path $Root "bin\python.exe"
+    $cwd = Join-Path $Root "script"
 } else {
-    $exe = Join-Path $root "bin\python.exe"
+    $py = (Get-Command python -ErrorAction Stop).Source
+    $cwd = $scriptDir
 }
-Set-Location (Join-Path $root "script")
-& $exe $Script @Args
-exit $LASTEXITCODE
+
+if (-not (Test-Path $py)) {
+    throw "Python not found: $py"
+}
+if (-not (Test-Path $cwd)) {
+    throw "Work dir not found: $cwd"
+}
+
+Write-Host "python=$py"
+Write-Host "cwd=$cwd"
+Write-Host "script=$scriptPath"
+
+Push-Location $cwd
+try {
+    & $py $scriptPath
+    exit $LASTEXITCODE
+}
+finally {
+    Pop-Location
+}
