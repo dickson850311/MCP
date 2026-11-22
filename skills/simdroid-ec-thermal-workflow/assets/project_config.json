@@ -1,0 +1,20 @@
+{
+  "install_root": "D:\\Simdroid Electronic Cooling V2026.7.3",
+  "project_root": "D:\\mcp-servers\\ec-api\\QR-V23_EC",
+  "step_file": "C:\\Users\\DICKSON.LIU\\Desktop\\QR-V23-15.4 2024-6-12.stp",
+  "files": {
+    "ec": "{project_root}\\QR-V23_EC.simec",
+    "tree": "{project_root}\\tree_after_import.json",
+    "bbox": "{project_root}\\bbox.csv",
+    "v2": "{project_root}\\QR-V23_v2.simec",
+    "v3": "{project_root}\\QR-V23_v3.simec",
+    "v4": "{project_root}\\QR-V23_v4.simec",
+    "v5": "{project_root}\\QR-V23_v5.simec",
+    "temp_extract": "{project_root}\\temp_extract",
+    "temp_all": "{project_root}\\temp_all",
+    "summary_csv": "{project_root}\\温度结果汇总.csv",
+    "report_img": "{project_root}\\report_img",
+    "result_t": "{project_root}\\QR-V23_v5\\Solving\\result\\T.txt",
+    "report_docx": "{project_root}\\QR-V23-15.4_稳态热仿真报告_v3.docx"
+  }
+}
