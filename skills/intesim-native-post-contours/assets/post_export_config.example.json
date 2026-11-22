@@ -1,0 +1,68 @@
+{
+  "log": "D:/work/native_post/post_export.log",
+  "load_wait_sec": 12,
+  "open_wait_sec": 4,
+  "close_wait_sec": 2,
+  "save_wait_sec": 2,
+  "width": 1600,
+  "height": 900,
+  "quality": 100,
+  "show_description": true,
+  "cases": [
+    {
+      "model_xml": "D:/project/MODEL_thermal_cold.model_1.model.xml",
+      "model_name": "M_Thermal_Auto",
+      "result_inp": "D:/project/MODEL_thermal_cold.model_1.model.res/MODEL_thermal_cold.model_1.model_partition0_M_Thermal_Auto_th_0016.res.inp",
+      "beam_shell_3d": true,
+      "figures": [
+        {
+          "out": "D:/work/native_post/native_thermal_cold.png",
+          "scalar": "temperature",
+          "adapter": 0,
+          "component_count": 29,
+          "min": -40.0,
+          "max": 20.0,
+          "legend_precision": 1,
+          "legend_font_size": 20,
+          "legend_split_number": 8,
+          "fit_factor": 1.0,
+          "view_direction": [0, 0, 1, 0, 1, 0]
+        }
+      ]
+    },
+    {
+      "model_xml": "D:/project/MODEL_struct_cold.model_1.model.xml",
+      "model_name": "M_Struct_Auto",
+      "result_inp": "D:/project/MODEL_struct_cold.model_1.model.res/MODEL_struct_cold.model_1.model_partition0_M_Struct_Auto_advso_0001.res.inp",
+      "beam_shell_3d": false,
+      "figures": [
+        {
+          "out": "D:/work/native_post/native_struct_cold_UZ.png",
+          "scalar": "displacement z",
+          "adapter": 2,
+          "component_count": 29,
+          "min": -9.61697336e-06,
+          "max": 2.07523272e-05,
+          "legend_precision": 2,
+          "legend_font_size": 16,
+          "legend_split_number": 10,
+          "fit_factor": 1.0,
+          "view_direction": [0, 0, 1, 0, 1, 0]
+        },
+        {
+          "out": "D:/work/native_post/native_struct_cold_US.png",
+          "scalar": "displacement sum",
+          "adapter": 3,
+          "component_count": 29,
+          "min": 0.0,
+          "max": 7.74211994e-04,
+          "legend_precision": 3,
+          "legend_font_size": 16,
+          "legend_split_number": 10,
+          "fit_factor": 1.0,
+          "view_direction": [0, 0, 1, 0, 1, 0]
+        }
+      ]
+    }
+  ]
+}
